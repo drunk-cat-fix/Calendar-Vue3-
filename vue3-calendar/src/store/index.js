@@ -6,7 +6,7 @@ export default createStore({
   state,
   getters: {
   },
-  mutations,
+  mutations:mutations,
   actions: {
   },
   modules: {

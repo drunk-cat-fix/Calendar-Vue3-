@@ -28,8 +28,20 @@ function getNowDate(field) {
     }
 }
 
+function formatDate(date, field) {
+    let splitDate = date.split('-');
+    switch (field) {
+        case 'day':
+            return `${splitDate[0]}年${splitDate[1]}月${splitDate[2]}日`;
+        case 'month':
+            return `${splitDate[0]}年${splitDate[1]}月`;
+        case 'year':
+            return `${splitDate[0]}年`;
+    }
+}
+
 export {
     getIconDate,
     getNowDate,
-
+    formatDate,
 }

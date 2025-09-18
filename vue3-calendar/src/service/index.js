@@ -1,6 +1,6 @@
 // Get Data
 import {getDayDate, getMonthDate, getYearDate} from './request';
-
+import {formatDate} from "@/lib/utils";
 
 export const getData = async (store, field, currentDate) => {
     let data = {};
@@ -17,17 +17,34 @@ export const getData = async (store, field, currentDate) => {
         default:
             break;
     }
+    console.log("try to get data " + data)
     console.log('data', data);
-    store.commit('setErrorCode', data.errorCode);
-    if (data.errorCode !== 0) {
+    store.commit('setErrorCode', data.error_code);
+    console.log("error_code is :" + store.state.errorCode);
+    if (data.error_code !== 0) {
         return;
+    }
+
+    let res = null;
+    switch (field) {
+        case 'day':
+            res = data.result.data;
+            // The process for date
+            res.data = formatDate(res.date, 'day');
+            res['year-month'] = formatDate(res['year-month'], 'month');
+            break;
+        case 'month':
+            break;
+        case 'year':
+            break;
     }
 
     store.commit('setData', {
         field,
-        data,
+        data: res,
     });
 
+    console.log("The data is " + data);
+    console.log("The data in vuex is ", store.state.dayData)
 }
-
-export default getData;
+export default getData

@@ -1,8 +1,10 @@
 <script>
-import {onMounted, reactive} from "vue";
+import {computed, onMounted} from "vue";
 import getData from "@/service";
 import {getNowDate} from "@/lib/utils";
 import {useStore} from "vuex";
+import DayCard from "../components/dayPage/card.vue";
+import ListItem from "@/components/dayPage/list.vue";
 
 export default {
   setup() {
@@ -13,9 +15,13 @@ export default {
 
     // console.log(store.state.dayData);
     return {
-      dayData: store.state.dayData,
+      dayData: computed(() => store.state.dayData)
     }
 
+  },
+  components: {
+    DayCard,
+    ListItem,
   }
 }
 </script>
@@ -23,7 +29,8 @@ export default {
 <template>
   <div class="container">
     <p>Day Page</p>
-    <p>{{ dayData }}</p>
+    <day-card :dayData="dayData"></day-card>
+    <list-item :dayData="dayData"></list-item>
   </div>
 </template>
 
