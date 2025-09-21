@@ -6,7 +6,7 @@ export default [
         path:'/'
     },
     {
-        iconText:getIconDate('month'),
+        iconText:(getIconDate('month')).toString(),
         tabText:'近期',
         path:'/month'
     },

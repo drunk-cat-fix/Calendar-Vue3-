@@ -53,7 +53,7 @@ export default {
         }
     },
     setField(state, routerName) {
-        state.feild = routerName;
+        state.field = routerName;
     },
     setErrorCode(state, errorCode) {
         state.errorCode = errorCode;

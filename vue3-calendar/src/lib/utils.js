@@ -22,7 +22,7 @@ function getNowDate(field) {
         case 'day':
             return `${year}-${month}-${day}`;
         case 'month':
-            return `${month}-${day}`;
+            return `${year}-${month}`;
         case 'year':
             return `${year}`;
     }

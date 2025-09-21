@@ -34,6 +34,11 @@ export const getData = async (store, field, currentDate) => {
             res['year-month'] = formatDate(res['year-month'], 'month');
             break;
         case 'month':
+            res = data.result.data.holiday_array;
+            for (let item of res) {
+                item.festival = formatDate(item.festival, 'day');
+            }
+            console.log(res);
             break;
         case 'year':
             break;
