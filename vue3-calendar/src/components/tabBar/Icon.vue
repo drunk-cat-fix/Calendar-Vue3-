@@ -1,6 +1,6 @@
 <template>
     <router-link :to="path" class="wrapper">
-        <i class="icon">{{ iconText }}</i>
+        <i class="icon">{{ Number(iconText)+1  }}</i>
         <p class="text">
           <slot></slot>  
         </p>

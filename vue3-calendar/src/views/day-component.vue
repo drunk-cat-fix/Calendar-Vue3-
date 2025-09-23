@@ -15,7 +15,8 @@ export default {
 
     // console.log(store.state.dayData);
     return {
-      dayData: computed(() => store.state.dayData)
+      dayData: computed(() => store.state.dayData),
+      errorCode: computed(() => store.state.errorCode),
     }
 
   },
@@ -28,9 +29,11 @@ export default {
 
 <template>
   <div class="container">
-    <p>Day Page</p>
-    <day-card :dayData="dayData"></day-card>
-    <list-item :dayData="dayData"></list-item>
+    <error-page :errorCode="errorCode" v-if="errorCode"></error-page>
+    <div v-else>
+      <day-card :dayData="dayData"></day-card>
+      <list-item :dayData="dayData"></list-item>
+    </div>
   </div>
 </template>
 

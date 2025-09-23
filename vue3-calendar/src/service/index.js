@@ -41,6 +41,10 @@ export const getData = async (store, field, currentDate) => {
             console.log(res);
             break;
         case 'year':
+            res = data.result.data.holiday_list;
+            for (let item of res) {
+                item.startday = formatDate(item.startday, 'day');
+            }
             break;
     }
 

@@ -1,38 +1,38 @@
 export default {
-    setHandlerTitle(state, title) {
+    setHeaderTitle(state, title) {
         switch (title) {
             case 'day':
-                state.handlerTitle = '当天信息';
+                state.headerTitle = '当天信息';
                 break;
             case 'month':
-                state.handlerTitle = '近期假期';
+                state.headerTitle = '近期假期';
                 break;
             case 'year':
-                state.handlerTitle = '当年假期';
+                state.headerTitle = '当年假期';
                 break;
             default:
-                state.handlerTitle = '当天信息';
+                state.headerTitle = '当天信息';
                 break;
         }
     },
     setPlaceHolder(state, routerName) {
         const date = new Date();
         const year = date.getFullYear();
-        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const month = (date.getMonth()+1).toString().padStart(2, '0');
         const day = date.getDate().toString().padStart(2, '0');
 
         switch (routerName) {
-            case 'day':
-                state.placeHolder = `格式: ${year}-${month}-${day}`;
+            case "day":
+                state.placeholder = `格式: ${year}${month}${day}`;
                 break;
-            case 'month':
-                state.placeHolder = `格式: ${year}-${month}`;
+            case "month":
+                state.placeholder = `格式: ${year}${month}`;
                 break;
-            case 'year':
+            case "year":
                 state.placeholder = `格式: ${year}`;
                 break;
             default:
-                state.placeholder = `格式：${year}-${month}-${day}`;
+                state.placeholder = `格式：${year}${month}${day}`;
                 break;
         }
     },

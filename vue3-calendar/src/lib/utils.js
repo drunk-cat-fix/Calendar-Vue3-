@@ -40,8 +40,25 @@ function formatDate(date, field) {
     }
 }
 
+function formatUserDate(date) {
+    switch (date.length) {
+        case 8:
+            let year = date.substr(0, 4);
+            let month = Number(date.substr(4, 2));
+            let day = Number(date.substr(6, 2));
+            return `${year}-${month}-${day}`;
+        case 6:
+            year = date.substr(0, 4);
+            month = Number(date.substr(4, 2));
+            return `${year}-${month}`;
+        default:
+            return date
+    }
+}
+
 export {
     getIconDate,
     getNowDate,
     formatDate,
+    formatUserDate,
 }
